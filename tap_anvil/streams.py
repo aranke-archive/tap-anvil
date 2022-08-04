@@ -7,8 +7,8 @@ class WeldsStream(AnvilStream):
     """Define weld stream."""
 
     name = "welds"
-    # type: ignore
-    records_jsonpath = "$.data.currentUser.organizations[*].welds[*]"
+    jsonpath = "$.data.currentUser.organizations[*].welds[*]"
+    records_jsonpath = jsonpath  # type: ignore
     replication_key = None
 
 
