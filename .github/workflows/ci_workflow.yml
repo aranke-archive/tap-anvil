@@ -1,58 +1,41 @@
-### A CI workflow template that runs linting and python testing
-### TODO: Modify as needed or as desired.
-
 name: Test tap-anvil
 
 on: [push]
 
 jobs:
-  linting:
-
+  mypy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        # Only lint using the primary version used for dev
-        python-version: [3.9]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
+    - uses: actions/checkout@v3
     - name: Install Poetry
-      uses: snok/install-poetry@v1
+      run: pipx install poetry
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
       with:
-        version: 1.1.8
+        python-version: '3.9'
+        cache: 'poetry'
     - name: Install dependencies
-      run: |
-        poetry install
-    - name: Run lint command from tox.ini
-      run: |
-        poetry run tox -e lint
+      run: poetry install
+    - name: Run mypy
+      run: poetry run mypy tap_anvil
 
   pytest:
-
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     strategy:
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: ['3.7', '3.8', '3.9', '3.10']
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - name: Install Poetry
+      run: pipx install poetry
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        version: 1.1.11
+        cache: 'poetry'
     - name: Install dependencies
-      run: |
-        poetry install
-    - name: Test with pytest
-      run: |
-        poetry run pytest --capture=no
+      run: poetry install
+    - name: Run pytest
+      run: poetry run pytest

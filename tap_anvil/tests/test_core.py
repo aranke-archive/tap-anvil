@@ -4,7 +4,7 @@ import datetime
 
 from singer_sdk.testing import get_standard_tap_tests
 
-from tap_anvil.tap import Tapanvil
+from tap_anvil.tap import TapAnvil
 
 SAMPLE_CONFIG = {
     "start_date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
@@ -15,10 +15,7 @@ SAMPLE_CONFIG = {
 # Run standard built-in tap tests from the SDK:
 def test_standard_tap_tests():
     """Run standard tap tests from the SDK."""
-    tests = get_standard_tap_tests(
-        Tapanvil,
-        config=SAMPLE_CONFIG
-    )
+    tests = get_standard_tap_tests(TapAnvil, config=SAMPLE_CONFIG)
     for test in tests:
         test()
 

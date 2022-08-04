@@ -1,9 +1,8 @@
 """GraphQL client handling, including anvilStream base class."""
 
-import requests
-from pathlib import Path
-from typing import Any, Dict, Optional, Union, List, Iterable
+from typing import Iterable, Optional
 
+import requests
 from singer_sdk.streams import GraphQLStream
 
 
