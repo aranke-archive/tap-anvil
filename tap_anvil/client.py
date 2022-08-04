@@ -1,12 +1,12 @@
 """GraphQL client handling, including anvilStream base class."""
 
-from typing import Iterable, Optional
+from typing import Iterable
 
 import requests
 from singer_sdk.streams import GraphQLStream
 
 
-class anvilStream(GraphQLStream):
+class AnvilStream(GraphQLStream):
     """anvil stream class."""
 
     # TODO: Set the API's base URL here:
@@ -24,7 +24,6 @@ class anvilStream(GraphQLStream):
         headers = {}
         if "user_agent" in self.config:
             headers["User-Agent"] = self.config.get("user_agent")
-        # If not using an authenticator, you may also provide inline auth headers:
         # headers["Private-Token"] = self.config.get("auth_token")
         return headers
 
@@ -34,8 +33,3 @@ class anvilStream(GraphQLStream):
         resp_json = response.json()
         for row in resp_json.get("<TODO>"):
             yield row
-
-    def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
-        """As needed, append or transform raw data to match expected structure."""
-        # TODO: Delete this method if not needed.
-        return row
