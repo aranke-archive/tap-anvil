@@ -4,7 +4,7 @@ from singer_sdk.testing import get_standard_tap_tests
 
 from tap_anvil.tap import TapAnvil
 
-SAMPLE_CONFIG = {}
+SAMPLE_CONFIG: dict = {}
 
 
 # Run standard built-in tap tests from the SDK:
