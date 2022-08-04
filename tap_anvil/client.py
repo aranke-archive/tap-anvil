@@ -32,6 +32,6 @@ class AnvilStream(GraphQLStream):
         """Return the authenticator."""
         return BasicAuthenticator.create_for_stream(
             self,
-            username=self.config.get("api_key"),
+            username=self.config["api_key"],
             password="",
         )
