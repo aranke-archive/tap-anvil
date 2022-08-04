@@ -1,0 +1,20 @@
+query {
+    currentUser {
+        organizations {
+            welds {
+                createdAt
+                draftStep
+                eid
+                hasSigners
+                hasWeldDatas
+                id
+                slug
+                title
+                updatedAt
+                versionId
+                versionNumber
+                visibility
+            }
+        }
+    }
+}
