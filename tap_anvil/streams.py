@@ -1,7 +1,6 @@
 """Stream type classes for tap-anvil."""
 
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Union
 
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
