@@ -17,6 +17,8 @@ jobs:
         cache: 'poetry'
     - name: Install dependencies
       run: poetry install
+    - name: Install mypy types
+      run: mypy --install-types
     - name: Run mypy
       run: poetry run mypy tap_anvil
 
