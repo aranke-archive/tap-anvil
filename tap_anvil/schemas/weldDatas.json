@@ -1,117 +1,171 @@
 {
-    "type": "object",
-    "properties": {
-        "archivedAt": {
-            "anyOf": [
-                {
-                    "type": "null"
-                },
-                {
-                    "type": "string",
-                    "format": "date-time"
-                }
-            ]
+  "properties": {
+    "archivedAt": {
+      "anyOf": [
+        {
+          "type": "null"
         },
-        "completionPercentage": {
-            "type": ["null", "number"]
-        },
-        "continueURL": {
-            "type": ["null", "string"]
-        },
-        "createdAt": {
-            "anyOf": [
-                {
-                    "type": "null"
-                },
-                {
-                    "type": "string",
-                    "format": "date-time"
-                }
-            ]
-        },
-        "dataUpdatedAt": {
-            "anyOf": [
-                {
-                    "type": "null"
-                },
-                {
-                    "type": "string",
-                    "format": "date-time"
-                }
-            ]
-        },
-        "displayTitle": {
-            "type": ["null", "string"]
-        },
-        "eid": {
-            "type": ["null", "string"]
-        },
-        "expiresAt": {
-            "anyOf": [
-                {
-                    "type": "null"
-                },
-                {
-                    "type": "string",
-                    "format": "date-time"
-                }
-            ]
-        },
-        "hasPin": {
-            "type": ["null", "boolean"]
-        },
-        "hasSigners": {
-            "type": ["null", "boolean"]
-        },
-        "id": {
-            "type": "integer"
-        },
-        "isComplete": {
-            "type": ["null", "boolean"]
-        },
-        "isCompleteAndSigned": {
-            "type": ["null", "boolean"]
-        },
-        "isExpired": {
-            "type": ["null", "boolean"]
-        },
-        "isTest": {
-            "type": ["null", "boolean"]
-        },
-        "numberRemainingSigners": {
-            "type": ["null", "integer"]
-        },
-        "payloadCanBeUpdated": {
-            "type": ["null", "boolean"]
-        },
-        "pin": {
-            "type": ["null", "string"]
-        },
-        "status": {
-            "type": ["null", "string"]
-        },
-        "updatedAt": {
-            "anyOf": [
-                {
-                    "type": "null"
-                },
-                {
-                    "type": "string",
-                    "format": "date-time"
-                }
-            ]
-        },
-        "webhookURL": {
-            "type": ["null", "string"]
-        },
-        "weldEid": {
-            "type": ["null", "string"]
-        },
-        "weldSlug": {
-            "type": ["null", "string"]
-        },
-        "weldName": {
-            "type": ["null", "string"]
+        {
+          "format": "date-time",
+          "type": "string"
         }
+      ]
+    },
+    "completionPercentage": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "continueURL": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "createdAt": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "format": "date-time",
+          "type": "string"
+        }
+      ]
+    },
+    "dataUpdatedAt": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "format": "date-time",
+          "type": "string"
+        }
+      ]
+    },
+    "displayTitle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "eid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expiresAt": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "format": "date-time",
+          "type": "string"
+        }
+      ]
+    },
+    "hasPin": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "hasSigners": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "isComplete": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isCompleteAndSigned": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isExpired": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isTest": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "numberRemainingSigners": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "payloadCanBeUpdated": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "pin": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updatedAt": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "format": "date-time",
+          "type": "string"
+        }
+      ]
+    },
+    "webhookURL": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "weldEid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "weldName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "weldSlug": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
+  },
+  "type": "object"
 }
