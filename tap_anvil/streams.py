@@ -37,9 +37,9 @@ class WeldDatasStream(AnvilStream):
     replication_key = "updatedAt"
 
     def get_next_page_token(
-            self,
-            response: requests.Response,
-            previous_token: int,
+        self,
+        response: requests.Response,
+        previous_token: int,
     ) -> int:
         """Handle pagination."""
         data = response.json()
@@ -54,9 +54,7 @@ class WeldDatasStream(AnvilStream):
 
         return None
 
-    def prepare_request_payload(
-            self, context: dict, next_page_token: int
-    ) -> dict:
+    def prepare_request_payload(self, context: dict, next_page_token: int) -> dict:
         """Inject GraphQL variables into payload."""
         return {
             "query": self.query,
