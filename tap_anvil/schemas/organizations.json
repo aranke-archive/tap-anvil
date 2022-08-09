@@ -70,10 +70,10 @@
       ]
     },
     "config": {
-        "type": [
-            "null",
-            "object"
-        ]
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "createdAt": {
       "anyOf": [
@@ -98,64 +98,64 @@
       ]
     },
     "subscribedPlanFeatures": {
-        "type": [
-            "null",
-            "object"
-        ]
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "subscriptionActivity": {
-        "type": [
-            "null",
-            "object"
-        ]
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "totalUsedUnits": {
-        "type": [
-            "null",
-            "integer"
-        ]
+      "type": [
+        "null",
+        "integer"
+      ]
     },
     "weldCompleteWebhookStats": {
-        "type": [
-            "null",
-            "array"
-        ]
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "weldCompleteStats": {
-        "type": [
-            "null",
-            "array"
-        ]
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "etchCompleteStats": {
-        "type": [
-            "null",
-            "array"
-        ]
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "remainingSubmissions": {
-        "type": [
-            "null",
-            "object"
-        ]
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "remainingEtchCompletions": {
-        "type": [
-            "null",
-            "object"
-        ]
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "signatureProviderType": {
-        "type": [
-            "null",
-            "string"
-        ]
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "availableSignatureProviderTypes": {
-        "type": [
-            "null",
-            "array"
-        ]
+      "type": [
+        "null",
+        "array"
+      ]
     }
   },
   "type": "object"
