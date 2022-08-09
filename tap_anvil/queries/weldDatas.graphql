@@ -6,32 +6,35 @@ query WeldDataQuery($eid: String!, $offset: Int = 1, $limit: Int = 100) {
       pageSize
       rowCount
       items {
-        archivedAt
-        completionPercentage
-        continueURL
-        createdAt
-        dataUpdatedAt
-        displayTitle
-        eid
-        expiresAt
-        hasPin
-        hasSigners
         id
+        eid
+        displayTitle
+        status
+        isTest
+        isExpired
         isComplete
         isCompleteAndSigned
-        isExpired
-        isTest
+        continueURL
+        webhookURL
+        completionPercentage
         numberRemainingSigners
         payloadCanBeUpdated
+        hasSigners
+        hasPin
         pin
-        status
-        updatedAt
-        webhookURL
+        agents
+        files
+        excludedFiles
         weld {
           eid
           slug
           name
         }
+        createdAt
+        updatedAt
+        dataUpdatedAt
+        expiresAt
+        archivedAt
       }
     }
   }

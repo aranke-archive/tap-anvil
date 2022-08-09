@@ -1,0 +1,31 @@
+query {
+    currentUser {
+        organizations {
+            id
+            eid
+            name
+            logo
+            logoURL
+            billingEmail
+            supportEmail
+            slug
+            isPersonal
+            isInternal
+            isSubscribed
+            useTestSignatureProvider
+            config
+            createdAt
+            updatedAt
+            subscribedPlanFeatures
+            subscriptionActivity
+            totalUsedUnits
+            weldCompleteWebhookStats
+            weldCompleteStats
+            etchCompleteStats
+            remainingSubmissions
+            remainingEtchCompletions
+            signatureProviderType
+            availableSignatureProviderTypes
+        }
+    }
+}
