@@ -11,6 +11,18 @@
         }
       ]
     },
+    "completionPercentage": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "continueURL": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "createdAt": {
       "anyOf": [
         {
@@ -22,7 +34,18 @@
         }
       ]
     },
-    "draftStep": {
+    "dataUpdatedAt": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "format": "date-time",
+          "type": "string"
+        }
+      ]
+    },
+    "displayTitle": {
       "type": [
         "null",
         "string"
@@ -45,7 +68,7 @@
         }
       ]
     },
-    "hasBeenPublished": {
+    "hasPin": {
       "type": [
         "null",
         "boolean"
@@ -57,28 +80,22 @@
         "boolean"
       ]
     },
-    "hasUnpublishedChanges": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "hasWeldDatas": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "id": {
       "type": "integer"
     },
-    "isLatestVersion": {
+    "isComplete": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "isPublishedVersion": {
+    "isCompleteAndSigned": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isExpired": {
       "type": [
         "null",
         "boolean"
@@ -90,66 +107,25 @@
         "boolean"
       ]
     },
-    "latestDraftVersionNumber": {
+    "numberRemainingSigners": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "name": {
+    "payloadCanBeUpdated": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "pin": {
       "type": [
         "null",
         "string"
       ]
     },
-    "publishedAt": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "format": "date-time",
-          "type": "string"
-        }
-      ]
-    },
-    "publishedNumber": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "publishedSlug": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "publishedVersionId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "publishedVersionNumber": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "signatureProviderType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "slug": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "title": {
+    "status": {
       "type": [
         "null",
         "string"
@@ -166,19 +142,25 @@
         }
       ]
     },
-    "versionId": {
+    "webhookURL": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "versionNumber": {
+    "weldEid": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "visibility": {
+    "weldName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "weldSlug": {
       "type": [
         "null",
         "string"

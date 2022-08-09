@@ -1,4 +1,12 @@
 repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: pretty-format-json
+        args:
+          - --autofix
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
   - repo: https://github.com/psf/black
     rev: 22.6.0
     hooks:
@@ -11,6 +19,8 @@ repos:
     rev: 5.0.4
     hooks:
       - id: flake8
+        args:
+          - --max-line-length=88
   - repo: https://github.com/PyCQA/pydocstyle
     rev: 6.1.1
     hooks:

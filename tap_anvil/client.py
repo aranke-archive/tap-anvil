@@ -1,6 +1,5 @@
 """GraphQL client handling, including anvilStream base class."""
 from pathlib import Path
-from typing import Optional
 
 from singer_sdk.authenticators import BasicAuthenticator
 from singer_sdk.streams import GraphQLStream
@@ -16,7 +15,7 @@ class AnvilStream(GraphQLStream):
     primary_keys = ["eid"]
 
     @property
-    def schema_filepath(self) -> Optional[Path]:
+    def schema_filepath(self) -> Path:
         """Get the path to the schema file."""
         return SCHEMAS_DIR / Path(f"{self.name}.json")
 
