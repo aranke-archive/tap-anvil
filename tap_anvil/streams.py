@@ -16,7 +16,7 @@ class WeldsStream(AnvilStream):
     records_jsonpath = jsonpath  # type: ignore
     replication_key = "updatedAt"
 
-    def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
+    def get_child_context(self, record: dict, context: dict) -> dict:
         """Pass weld EID to child weld data."""
         return {
             "eid": record["eid"],
@@ -39,8 +39,8 @@ class WeldDatasStream(AnvilStream):
     def get_next_page_token(
             self,
             response: requests.Response,
-            previous_token: Optional[int],
-    ) -> Optional[int]:
+            previous_token: int,
+    ) -> int:
         """Handle pagination."""
         data = response.json()
         page = data["data"]["weld"]["weldDatas"]
@@ -55,15 +55,15 @@ class WeldDatasStream(AnvilStream):
         return None
 
     def prepare_request_payload(
-            self, context: Optional[dict], next_page_token: Optional[int]
-    ) -> Optional[dict]:
+            self, context: dict, next_page_token: int
+    ) -> dict:
         """Inject GraphQL variables into payload."""
         return {
             "query": self.query,
             "variables": {"eid": context["eid"], "offset": next_page_token},
         }
 
-    def post_process(self, row: dict, context: Optional[dict] = None) -> Optional[dict]:
+    def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
         """Add weld information to record."""
         for k in ["eid", "slug", "name"]:
             row["weld" + k.title()] = row["weld"][k]
