@@ -1,35 +1,26 @@
-query {
-    currentUser {
-        organizations {
-            welds {
-                archivedAt
-                createdAt
-                draftStep
-                eid
-                expiresAt
-                hasBeenPublished
-                hasSigners
-                hasUnpublishedChanges
-                hasWeldDatas
-                id
-                isLatestVersion
-                isPublishedVersion
-                isTest
-                latestDraftVersionNumber
-                name
-                publishedAt
-                publishedNumber
-                publishedSlug
-                publishedVersionId
-                publishedVersionNumber
-                signatureProviderType
-                slug
-                title
-                updatedAt
-                versionId
-                versionNumber
-                visibility
-            }
+query($slug: String!) {
+    organization(organizationSlug: $slug) {
+        welds {
+            versionNumber
+            versionId
+            latestDraftVersionNumber
+            publishedNumber
+            publishedAt
+            hasUnpublishedChanges
+            id
+            eid
+            slug
+            name
+            visibility
+            config
+            hasSigners
+            signatureProviderType
+            availableSignatureProviderTypes
+            remainingSubmissions
+            createdAt
+            updatedAt
+            archivedAt
+            expiresAt
         }
     }
 }

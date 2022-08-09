@@ -1,0 +1,162 @@
+{
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "eid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "logo": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "logoURL": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billingEmail": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "supportEmail": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "slug": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "isPersonal": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isInternal": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isSubscribed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "useTestSignatureProvider": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "config": {
+        "type": [
+            "null",
+            "object"
+        ]
+    },
+    "createdAt": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "format": "date-time",
+          "type": "string"
+        }
+      ]
+    },
+    "updatedAt": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "format": "date-time",
+          "type": "string"
+        }
+      ]
+    },
+    "subscribedPlanFeatures": {
+        "type": [
+            "null",
+            "object"
+        ]
+    },
+    "subscriptionActivity": {
+        "type": [
+            "null",
+            "object"
+        ]
+    },
+    "totalUsedUnits": {
+        "type": [
+            "null",
+            "integer"
+        ]
+    },
+    "weldCompleteWebhookStats": {
+        "type": [
+            "null",
+            "array"
+        ]
+    },
+    "weldCompleteStats": {
+        "type": [
+            "null",
+            "array"
+        ]
+    },
+    "etchCompleteStats": {
+        "type": [
+            "null",
+            "array"
+        ]
+    },
+    "remainingSubmissions": {
+        "type": [
+            "null",
+            "object"
+        ]
+    },
+    "remainingEtchCompletions": {
+        "type": [
+            "null",
+            "object"
+        ]
+    },
+    "signatureProviderType": {
+        "type": [
+            "null",
+            "string"
+        ]
+    },
+    "availableSignatureProviderTypes": {
+        "type": [
+            "null",
+            "array"
+        ]
+    }
+  },
+  "type": "object"
+}

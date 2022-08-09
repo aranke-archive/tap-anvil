@@ -1,6 +1,117 @@
 {
   "properties": {
-    "archivedAt": {
+    "id": {
+      "type": "integer"
+    },
+    "eid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "displayTitle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "isTest": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isExpired": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isComplete": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isCompleteAndSigned": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "continueURL": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "webhookURL": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "completionPercentage": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "numberRemainingSigners": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "payloadCanBeUpdated": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "hasSigners": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "hasPin": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "pin": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "agents": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "files": {
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "excludedFiles": {
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "createdAt": {
       "anyOf": [
         {
           "type": "null"
@@ -11,19 +122,7 @@
         }
       ]
     },
-    "completionPercentage": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "continueURL": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "createdAt": {
+    "updatedAt": {
       "anyOf": [
         {
           "type": "null"
@@ -45,18 +144,6 @@
         }
       ]
     },
-    "displayTitle": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "eid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "expiresAt": {
       "anyOf": [
         {
@@ -68,70 +155,7 @@
         }
       ]
     },
-    "hasPin": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "hasSigners": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "id": {
-      "type": "integer"
-    },
-    "isComplete": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "isCompleteAndSigned": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "isExpired": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "isTest": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "numberRemainingSigners": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "payloadCanBeUpdated": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "pin": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updatedAt": {
+    "archivedAt": {
       "anyOf": [
         {
           "type": "null"
@@ -140,12 +164,6 @@
           "format": "date-time",
           "type": "string"
         }
-      ]
-    },
-    "webhookURL": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "weldEid": {

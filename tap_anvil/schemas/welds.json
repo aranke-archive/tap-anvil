@@ -1,93 +1,15 @@
 {
   "properties": {
-    "archivedAt": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "format": "date-time",
-          "type": "string"
-        }
-      ]
-    },
-    "createdAt": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "format": "date-time",
-          "type": "string"
-        }
-      ]
-    },
-    "draftStep": {
+    "versionNumber": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "eid": {
+    "versionId": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "expiresAt": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "format": "date-time",
-          "type": "string"
-        }
-      ]
-    },
-    "hasBeenPublished": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "hasSigners": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "hasUnpublishedChanges": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "hasWeldDatas": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "id": {
-      "type": "integer"
-    },
-    "isLatestVersion": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "isPublishedVersion": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "isTest": {
-      "type": [
-        "null",
-        "boolean"
+        "integer"
       ]
     },
     "latestDraftVersionNumber": {
@@ -96,10 +18,10 @@
         "integer"
       ]
     },
-    "name": {
+    "publishedNumber": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "publishedAt": {
@@ -113,31 +35,16 @@
         }
       ]
     },
-    "publishedNumber": {
+    "hasUnpublishedChanges": {
       "type": [
         "null",
-        "integer"
+        "boolean"
       ]
     },
-    "publishedSlug": {
-      "type": [
-        "null",
-        "string"
-      ]
+    "id": {
+      "type": "integer"
     },
-    "publishedVersionId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "publishedVersionNumber": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "signatureProviderType": {
+    "eid": {
       "type": [
         "null",
         "string"
@@ -149,10 +56,57 @@
         "string"
       ]
     },
-    "title": {
+    "name": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "visibility": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "config": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "hasSigners": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "signatureProviderType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "availableSignatureProviderTypes": {
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "remainingSubmissions": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "createdAt": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "format": "date-time",
+          "type": "string"
+        }
       ]
     },
     "updatedAt": {
@@ -166,22 +120,26 @@
         }
       ]
     },
-    "versionId": {
-      "type": [
-        "null",
-        "integer"
+    "archivedAt": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "format": "date-time",
+          "type": "string"
+        }
       ]
     },
-    "versionNumber": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "visibility": {
-      "type": [
-        "null",
-        "string"
+    "expiresAt": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "format": "date-time",
+          "type": "string"
+        }
       ]
     }
   },
