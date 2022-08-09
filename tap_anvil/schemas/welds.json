@@ -1,41 +1,126 @@
 {
     "type": "object",
     "properties": {
+        "archivedAt": {
+            "anyOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            ]
+        },
         "createdAt": {
-            "type": "datetime"
+            "anyOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            ]
         },
         "draftStep": {
-            "type": "string"
+            "type": ["null", "string"]
         },
         "eid": {
-            "type": "string"
+            "type": ["null", "string"]
+        },
+        "expiresAt": {
+            "anyOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            ]
+        },
+        "hasBeenPublished": {
+            "type": ["null", "boolean"]
         },
         "hasSigners": {
-            "type": "boolean"
+            "type": ["null", "boolean"]
+        },
+        "hasUnpublishedChanges": {
+            "type": ["null", "boolean"]
         },
         "hasWeldDatas": {
-            "type": "boolean"
+            "type": ["null", "boolean"]
         },
         "id": {
-            "type": "string"
-        },
-        "slug": {
-            "type": "string"
-        },
-        "title": {
-            "type": "string"
-        },
-        "updatedAt": {
-            "type": "datetime"
-        },
-        "versionId": {
-            "type": "string"
-        },
-        "versionNumber": {
             "type": "integer"
         },
+        "isLatestVersion": {
+            "type": ["null", "boolean"]
+        },
+        "isPublishedVersion": {
+            "type": ["null", "boolean"]
+        },
+        "isTest": {
+            "type": ["null", "boolean"]
+        },
+        "latestDraftVersionNumber": {
+            "type": ["null", "integer"]
+        },
+        "name": {
+            "type": ["null", "string"]
+        },
+        "publishedAt": {
+            "anyOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            ]
+        },
+        "publishedNumber": {
+            "type": ["null", "integer"]
+        },
+        "publishedSlug": {
+            "type": ["null", "string"]
+        },
+        "publishedVersionId": {
+            "type": ["null", "integer"]
+        },
+        "publishedVersionNumber": {
+            "type": ["null", "integer"]
+        },
+        "signatureProviderType": {
+            "type": ["null", "string"]
+        },
+        "slug": {
+            "type": ["null", "string"]
+        },
+        "title": {
+            "type": ["null", "string"]
+        },
+        "updatedAt": {
+            "anyOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            ]
+        },
+        "versionId": {
+            "type": ["null", "integer"]
+        },
+        "versionNumber": {
+            "type": ["null", "integer"]
+        },
         "visibility": {
-            "type": "string"
+            "type": ["null", "string"]
         }
     }
 }
