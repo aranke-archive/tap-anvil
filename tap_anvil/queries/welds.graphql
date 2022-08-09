@@ -2,12 +2,27 @@ query {
     currentUser {
         organizations {
             welds {
+                archivedAt
                 createdAt
                 draftStep
                 eid
+                expiresAt
+                hasBeenPublished
                 hasSigners
+                hasUnpublishedChanges
                 hasWeldDatas
                 id
+                isLatestVersion
+                isPublishedVersion
+                isTest
+                latestDraftVersionNumber
+                name
+                publishedAt
+                publishedNumber
+                publishedSlug
+                publishedVersionId
+                publishedVersionNumber
+                signatureProviderType
                 slug
                 title
                 updatedAt
