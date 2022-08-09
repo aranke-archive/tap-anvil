@@ -54,7 +54,9 @@ class WeldDatasStream(AnvilStream):
 
         return None
 
-    def prepare_request_payload(self, context: Optional[dict], next_page_token: Optional[int]) -> dict:
+    def prepare_request_payload(
+        self, context: Optional[dict], next_page_token: Optional[int]
+    ) -> dict:
         """Inject GraphQL variables into payload."""
         offset = next_page_token if next_page_token else 1
         eid = context.get("eid") if context is not None else None
