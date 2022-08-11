@@ -1,12 +1,8 @@
 # tap-anvil
 
-`tap-anvil` is a Singer tap for anvil.
-
-Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
+`tap-anvil` is a Singer tap for [Anvil](https://www.useanvil.com/), a tool for programmatically filling out PDF forms.
 
 ## Installation
-
-- [ ] `Developer TODO:` Update the below as needed to correctly describe the install procedure. For instance, if you do not have a PyPi repo, or if you want users to directly install from your git repo, you can modify this step as appropriate.
 
 ```bash
 pipx install tap-anvil
@@ -14,93 +10,47 @@ pipx install tap-anvil
 
 ## Configuration
 
-### Accepted Config Options
+The only config option is an Anvil API key which can be set up using [these instructions](https://www.useanvil.com/docs/api/getting-started#api-key).
+When running in production, make sure to use the production API key to avoid throttling.
 
-- [ ] `Developer TODO:` Provide a list of config options accepted by the tap.
-
-A full list of supported settings and capabilities for this
-tap is available by running:
-
-```bash
-tap-anvil --about
-```
-
-### Configure using environment variables
-
-This Singer tap will automatically import any environment variables within the working directory's
-`.env` if the `--config=ENV` is provided, such that config values will be considered if a matching
-environment variable is set either in the terminal context or in the `.env` file.
-
-### Source Authentication and Authorization
-
-- [ ] `Developer TODO:` If your tap requires special access on the source system, or any special authentication requirements, provide those here.
+`tap-anvil` accepts this config option using the `TAP_ANVIL_API_KEY` environment variable.
 
 ## Usage
 
-You can easily run `tap-anvil` by itself or in a pipeline using [Meltano](https://meltano.com/).
-
-### Executing the Tap Directly
-
 ```bash
-tap-anvil --version
-tap-anvil --help
-tap-anvil --config CONFIG --discover > ./catalog.json
+TAP_ANVIL_API_KEY=xxx tap-anvil --config=ENV 
 ```
 
-## Developer Resources
+## References
 
-- [ ] `Developer TODO:` As a first step, scan the entire project for the text "`TODO:`" and complete any recommended steps, deleting the "TODO" references once completed.
+* [Anvil GraphQL API](https://www.useanvil.com/docs/api/graphql/reference/)
+* [Meltano SDK Developer Guide](https://sdk.meltano.com/en/latest/dev_guide.html)
+* [Singer Spec](https://hub.meltano.com/singer/spec/)
 
-### Initialize your Development Environment
+## Local Development
+
+### Installation
 
 ```bash
 pipx install poetry
 poetry install
 ```
 
-### Create and Run Tests
+### Download Data
 
-Create tests within the `tap_anvil/tests` subfolder and
-  then run:
+```bash
+pipx install tap-jsonl
+rm -rf output/*.jsonl && TAP_ANVIL_API_KEY=xxx tap-anvil --config=ENV | target-jsonl -c output/target-jsonl-config.json
+```
+
+A full run takes about 4 minutes at the time of writing.
+
+### Testing
 
 ```bash
 poetry run pytest
 ```
 
-You can also test the `tap-anvil` CLI interface directly using `poetry run`:
+### Running a GraphQL query locally
 
-```bash
-poetry run tap-anvil --help
-```
-
-### Testing with [Meltano](https://www.meltano.com)
-
-_**Note:** This tap will work in any Singer environment and does not require Meltano.
-Examples here are for convenience and to streamline end-to-end orchestration scenarios._
-
-Your project comes with a custom `meltano.yml` project file already created. Open the `meltano.yml` and follow any _"TODO"_ items listed in
-the file.
-
-Next, install Meltano (if you haven't already) and any needed plugins:
-
-```bash
-# Install meltano
-pipx install meltano
-# Initialize meltano within this directory
-cd tap-anvil
-meltano install
-```
-
-Now you can test and orchestrate using Meltano:
-
-```bash
-# Test invocation:
-meltano invoke tap-anvil --version
-# OR run a test `elt` pipeline:
-meltano elt tap-anvil target-jsonl
-```
-
-### SDK Dev Guide
-
-See the [dev guide](https://sdk.meltano.com/en/latest/dev_guide.html) for more instructions on how to use the SDK to
-develop your own taps and targets.
+Use the Anvil Postman collection here: https://www.postman.com/useanvil/workspace/anvil/overview.

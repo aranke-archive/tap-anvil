@@ -1,0 +1,23 @@
+query($eid: String!) {
+    weld(eid: $eid) {
+        forges {
+            versionNumber
+            versionId
+            latestDraftVersionNumber
+            publishedNumber
+            publishedAt
+            hasUnpublishedChanges
+            id
+            eid
+            name
+            slug
+            isRequired
+            config
+            fieldInfo
+            createdAt
+            updatedAt
+            archivedAt
+            examplePayload
+        }
+    }
+}

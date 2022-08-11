@@ -5,9 +5,10 @@ from typing import List
 from singer_sdk import Stream, Tap
 from singer_sdk import typing as th  # JSON schema typing helpers
 
-from tap_anvil.streams import OrganizationsStream, WeldDatasStream, WeldsStream
+from tap_anvil.streams import (ForgesStream, OrganizationsStream,
+                               WeldDatasStream, WeldsStream, SubmissionsStream)
 
-STREAM_TYPES = [OrganizationsStream, WeldsStream, WeldDatasStream]
+STREAM_TYPES = [OrganizationsStream, WeldsStream, ForgesStream, WeldDatasStream, SubmissionsStream]
 
 
 class TapAnvil(Tap):

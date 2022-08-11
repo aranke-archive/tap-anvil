@@ -1,47 +1,6 @@
 {
   "type": "object",
   "properties": {
-    "versionNumber": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "versionId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "latestDraftVersionNumber": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "publishedNumber": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "publishedAt": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "format": "date-time",
-          "type": "string"
-        }
-      ]
-    },
-    "hasUnpublishedChanges": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "id": {
       "type": "integer"
     },
@@ -51,49 +10,73 @@
         "string"
       ]
     },
-    "slug": {
+    "status": {
       "type": [
         "null",
         "string"
       ]
     },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "visibility": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "config": {
+    "resolvedPayload": {
       "type": [
         "null",
         "object"
       ]
     },
-    "hasSigners": {
+    "payload": {
       "type": [
         "null",
-        "boolean"
+        "object"
       ]
     },
-    "signatureProviderType": {
+    "payloadValue": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "currentStep": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "totalSteps": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "continueURL": {
       "type": [
         "null",
         "string"
       ]
     },
-    "availableSignatureProviderTypes": {
+    "reviewData": {
       "type": [
         "null",
         "array"
       ]
     },
-    "remainingSubmissions": {
+    "completionPercentage": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "isExcluded": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "touchedByUser": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "requestMeta": {
       "type": [
         "null",
         "object"
@@ -132,18 +115,7 @@
         }
       ]
     },
-    "expiresAt": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "format": "date-time",
-          "type": "string"
-        }
-      ]
-    },
-    "organizationSlug": {
+    "weldDataEid": {
       "type": [
         "null",
         "string"

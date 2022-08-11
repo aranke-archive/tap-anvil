@@ -1,4 +1,5 @@
 {
+  "type": "object",
   "properties": {
     "id": {
       "type": "integer"
@@ -171,19 +172,6 @@
         "null",
         "string"
       ]
-    },
-    "weldName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "weldSlug": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  },
-  "type": "object"
+  }
 }

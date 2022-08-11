@@ -51,22 +51,22 @@
         "string"
       ]
     },
-    "slug": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "visibility": {
+    "slug": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "isRequired": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "config": {
@@ -75,28 +75,10 @@
         "object"
       ]
     },
-    "hasSigners": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "signatureProviderType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "availableSignatureProviderTypes": {
+    "fieldInfo": {
       "type": [
         "null",
         "array"
-      ]
-    },
-    "remainingSubmissions": {
-      "type": [
-        "null",
-        "object"
       ]
     },
     "createdAt": {
@@ -132,18 +114,13 @@
         }
       ]
     },
-    "expiresAt": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "format": "date-time",
-          "type": "string"
-        }
+    "examplePayload": {
+      "type": [
+        "null",
+        "object"
       ]
     },
-    "organizationSlug": {
+    "weldEid": {
       "type": [
         "null",
         "string"
