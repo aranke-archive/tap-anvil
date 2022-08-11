@@ -30,10 +30,10 @@ class WeldsStream(AnvilStream):
     ignore_parent_replication_keys = True
 
     def prepare_request_payload(
-        self, context: Optional[dict], next_page_token: Optional[int]
+            self, context: Optional[dict], next_page_token: Optional[int]
     ) -> dict:
         """Inject GraphQL variables into payload."""
-        slug = context.get("slug") if context else None
+        slug = context['slug']  # type: ignore
 
         return {
             "query": self.query,
@@ -48,7 +48,7 @@ class WeldsStream(AnvilStream):
 
     def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
         """Add organization information to record."""
-        row["organizationSlug"] = context.get("slug") if context else None
+        row["organizationSlug"] = context["slug"]  # type: ignore
         return row
 
 
@@ -62,10 +62,10 @@ class ForgesStream(AnvilStream):
     ignore_parent_replication_keys = True
 
     def prepare_request_payload(
-        self, context: Optional[dict], next_page_token: Optional[int]
+            self, context: Optional[dict], next_page_token: Optional[int]
     ) -> dict:
         """Inject GraphQL variables into payload."""
-        eid = context.get("eid") if context else None
+        eid = context['eid']  # type: ignore
 
         return {
             "query": self.query,
@@ -74,7 +74,7 @@ class ForgesStream(AnvilStream):
 
     def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
         """Add weld information to record."""
-        row["weldEid"] = context.get("eid") if context else None
+        row["weldEid"] = context["eid"]  # type: ignore
         return row
 
 
@@ -88,9 +88,9 @@ class WeldDatasStream(AnvilStream):
     ignore_parent_replication_keys = True
 
     def get_next_page_token(
-        self,
-        response: requests.Response,
-        previous_token: Optional[int],
+            self,
+            response: requests.Response,
+            previous_token: Optional[int],
     ) -> Optional[int]:
         """Handle pagination."""
         data = response.json()
@@ -106,11 +106,11 @@ class WeldDatasStream(AnvilStream):
         return None
 
     def prepare_request_payload(
-        self, context: Optional[dict], next_page_token: Optional[int]
+            self, context: Optional[dict], next_page_token: Optional[int]
     ) -> dict:
         """Inject GraphQL variables into payload."""
-        offset = next_page_token if next_page_token else 1
-        eid = context.get("eid") if context else None
+        offset = next_page_token or 1
+        eid = context['eid']  # type: ignore
 
         return {
             "query": self.query,
@@ -125,7 +125,7 @@ class WeldDatasStream(AnvilStream):
 
     def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
         """Add weld information to record."""
-        row["weldEid"] = context.get("eid") if context else None
+        row["weldEid"] = context["eid"]  # type: ignore
         return row
 
 
@@ -139,10 +139,10 @@ class SubmissionsStream(AnvilStream):
     ignore_parent_replication_keys = True
 
     def prepare_request_payload(
-        self, context: Optional[dict], next_page_token: Optional[int]
+            self, context: Optional[dict], next_page_token: Optional[int]
     ) -> dict:
         """Inject GraphQL variables into payload."""
-        eid = context.get("eid") if context else None
+        eid = context['eid']  # type: ignore
 
         return {
             "query": self.query,
@@ -151,5 +151,5 @@ class SubmissionsStream(AnvilStream):
 
     def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
         """Add weld information to record."""
-        row["weldDataEid"] = context.get("eid") if context else None
+        row["weldDataEid"] = context["eid"]  # type: ignore
         return row
