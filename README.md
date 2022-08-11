@@ -18,7 +18,7 @@ When running in production, make sure to use the production API key to avoid thr
 ## Usage
 
 ```bash
-TAP_ANVIL_API_KEY=xxx tap-anvil --config=ENV 
+TAP_ANVIL_API_KEY=xxx tap-anvil --config=ENV
 ```
 
 ## References
