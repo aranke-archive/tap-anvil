@@ -30,10 +30,10 @@ class WeldsStream(AnvilStream):
     ignore_parent_replication_keys = True
 
     def prepare_request_payload(
-            self, context: Optional[dict], next_page_token: Optional[int]
+        self, context: Optional[dict], next_page_token: Optional[int]
     ) -> dict:
         """Inject GraphQL variables into payload."""
-        slug = context['slug']  # type: ignore
+        slug = context["slug"]  # type: ignore
 
         return {
             "query": self.query,
@@ -62,10 +62,10 @@ class ForgesStream(AnvilStream):
     ignore_parent_replication_keys = True
 
     def prepare_request_payload(
-            self, context: Optional[dict], next_page_token: Optional[int]
+        self, context: Optional[dict], next_page_token: Optional[int]
     ) -> dict:
         """Inject GraphQL variables into payload."""
-        eid = context['eid']  # type: ignore
+        eid = context["eid"]  # type: ignore
 
         return {
             "query": self.query,
@@ -88,9 +88,9 @@ class WeldDatasStream(AnvilStream):
     ignore_parent_replication_keys = True
 
     def get_next_page_token(
-            self,
-            response: requests.Response,
-            previous_token: Optional[int],
+        self,
+        response: requests.Response,
+        previous_token: Optional[int],
     ) -> Optional[int]:
         """Handle pagination."""
         data = response.json()
@@ -106,11 +106,11 @@ class WeldDatasStream(AnvilStream):
         return None
 
     def prepare_request_payload(
-            self, context: Optional[dict], next_page_token: Optional[int]
+        self, context: Optional[dict], next_page_token: Optional[int]
     ) -> dict:
         """Inject GraphQL variables into payload."""
         offset = next_page_token or 1
-        eid = context['eid']  # type: ignore
+        eid = context["eid"]  # type: ignore
 
         return {
             "query": self.query,
@@ -139,10 +139,10 @@ class SubmissionsStream(AnvilStream):
     ignore_parent_replication_keys = True
 
     def prepare_request_payload(
-            self, context: Optional[dict], next_page_token: Optional[int]
+        self, context: Optional[dict], next_page_token: Optional[int]
     ) -> dict:
         """Inject GraphQL variables into payload."""
-        eid = context['eid']  # type: ignore
+        eid = context["eid"]  # type: ignore
 
         return {
             "query": self.query,
