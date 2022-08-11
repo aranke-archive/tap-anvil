@@ -43,8 +43,6 @@ pipx install tap-jsonl
 rm -rf output/*.jsonl && TAP_ANVIL_API_KEY=xxx tap-anvil --config=ENV | target-jsonl -c output/target-jsonl-config.json
 ```
 
-A full run takes about 4 minutes at the time of writing.
-
 ### Testing
 
 ```bash
