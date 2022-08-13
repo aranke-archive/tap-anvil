@@ -13,6 +13,7 @@ class AnvilStream(GraphQLStream):
 
     url_base = "https://graphql.useanvil.com"
     primary_keys = ["eid"]
+    replication_key = "updatedAt"
 
     @property
     def schema_filepath(self) -> Path:

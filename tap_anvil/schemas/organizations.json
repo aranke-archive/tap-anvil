@@ -1,4 +1,5 @@
 {
+  "type": "object",
   "properties": {
     "id": {
       "type": "integer"
@@ -157,6 +158,5 @@
         "array"
       ]
     }
-  },
-  "type": "object"
+  }
 }

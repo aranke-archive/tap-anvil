@@ -10,12 +10,8 @@ class OrganizationsStream(AnvilStream):
     """Define organization stream."""
 
     name = "organizations"
-    primary_keys = ["eid"]
-
     jsonpath = "$.data.currentUser.organizations[*]"
     records_jsonpath = jsonpath  # type: ignore
-
-    replication_key = "updatedAt"
 
     def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
         """Pass organization slug to child weld."""
@@ -28,20 +24,16 @@ class WeldsStream(AnvilStream):
     """Define weld stream."""
 
     name = "welds"
-    primary_keys = ["eid"]
     parent_stream_type = OrganizationsStream
-
     jsonpath = "$.data.organization.welds[*]"
     records_jsonpath = jsonpath  # type: ignore
-
     ignore_parent_replication_keys = True
-    replication_key = "updatedAt"
 
     def prepare_request_payload(
         self, context: Optional[dict], next_page_token: Optional[int]
     ) -> dict:
         """Inject GraphQL variables into payload."""
-        slug = context.get("slug") if context else None
+        slug = context["slug"]  # type: ignore
 
         return {
             "query": self.query,
@@ -56,7 +48,33 @@ class WeldsStream(AnvilStream):
 
     def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
         """Add organization information to record."""
-        row["organizationSlug"] = context.get("slug") if context else None
+        row["organizationSlug"] = context["slug"]  # type: ignore
+        return row
+
+
+class ForgesStream(AnvilStream):
+    """Define forge stream."""
+
+    name = "forges"
+    parent_stream_type = WeldsStream
+    jsonpath = "$.data.weld.forges[*]"
+    records_jsonpath = jsonpath  # type: ignore
+    ignore_parent_replication_keys = True
+
+    def prepare_request_payload(
+        self, context: Optional[dict], next_page_token: Optional[int]
+    ) -> dict:
+        """Inject GraphQL variables into payload."""
+        eid = context["eid"]  # type: ignore
+
+        return {
+            "query": self.query,
+            "variables": {"eid": eid},
+        }
+
+    def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
+        """Add weld information to record."""
+        row["weldEid"] = context["eid"]  # type: ignore
         return row
 
 
@@ -64,14 +82,10 @@ class WeldDatasStream(AnvilStream):
     """Define weld data stream."""
 
     name = "weldDatas"
-    primary_keys = ["eid"]
     parent_stream_type = WeldsStream
-
     jsonpath = "$.data.weld.weldDatas.items[*]"
     records_jsonpath = jsonpath  # type: ignore
-
     ignore_parent_replication_keys = True
-    replication_key = "updatedAt"
 
     def get_next_page_token(
         self,
@@ -95,17 +109,47 @@ class WeldDatasStream(AnvilStream):
         self, context: Optional[dict], next_page_token: Optional[int]
     ) -> dict:
         """Inject GraphQL variables into payload."""
-        offset = next_page_token if next_page_token else 1
-        eid = context.get("eid") if context else None
+        offset = next_page_token or 1
+        eid = context["eid"]  # type: ignore
 
         return {
             "query": self.query,
             "variables": {"eid": eid, "offset": offset},
         }
 
+    def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
+        """Pass weld EID to child weld data."""
+        return {
+            "eid": record["eid"],
+        }
+
     def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
         """Add weld information to record."""
-        for k in ["eid", "slug", "name"]:
-            row["weld" + k.title()] = row["weld"][k]
-        del row["weld"]
+        row["weldEid"] = context["eid"]  # type: ignore
+        return row
+
+
+class SubmissionsStream(AnvilStream):
+    """Define submission stream."""
+
+    name = "submissions"
+    parent_stream_type = WeldDatasStream
+    jsonpath = "$.data.weldData.submissions[*]"
+    records_jsonpath = jsonpath  # type: ignore
+    ignore_parent_replication_keys = True
+
+    def prepare_request_payload(
+        self, context: Optional[dict], next_page_token: Optional[int]
+    ) -> dict:
+        """Inject GraphQL variables into payload."""
+        eid = context["eid"]  # type: ignore
+
+        return {
+            "query": self.query,
+            "variables": {"eid": eid},
+        }
+
+    def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
+        """Add weld information to record."""
+        row["weldDataEid"] = context["eid"]  # type: ignore
         return row

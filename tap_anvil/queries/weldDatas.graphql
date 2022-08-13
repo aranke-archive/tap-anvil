@@ -1,41 +1,36 @@
-query WeldDataQuery($eid: String!, $offset: Int = 1, $limit: Int = 100) {
-  weld(eid: $eid) {
-    weldDatas(offset: $offset, limit: $limit) {
-      page
-      pageCount
-      pageSize
-      rowCount
-      items {
-        id
-        eid
-        displayTitle
-        status
-        isTest
-        isExpired
-        isComplete
-        isCompleteAndSigned
-        continueURL
-        webhookURL
-        completionPercentage
-        numberRemainingSigners
-        payloadCanBeUpdated
-        hasSigners
-        hasPin
-        pin
-        agents
-        files
-        excludedFiles
-        weld {
-          eid
-          slug
-          name
+query WeldDataQuery($eid: String!, $offset: Int = 0, $limit: Int = 100) {
+    weld(eid: $eid) {
+        weldDatas(offset: $offset, limit: $limit) {
+            page
+            pageCount
+            pageSize
+            rowCount
+            items {
+                id
+                eid
+                displayTitle
+                status
+                isTest
+                isExpired
+                isComplete
+                isCompleteAndSigned
+                continueURL
+                webhookURL
+                completionPercentage
+                numberRemainingSigners
+                payloadCanBeUpdated
+                hasSigners
+                hasPin
+                pin
+                agents
+                files
+                excludedFiles
+                createdAt
+                updatedAt
+                dataUpdatedAt
+                expiresAt
+                archivedAt
+            }
         }
-        createdAt
-        updatedAt
-        dataUpdatedAt
-        expiresAt
-        archivedAt
-      }
     }
-  }
 }

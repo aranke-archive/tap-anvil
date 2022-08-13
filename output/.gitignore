@@ -1,4 +1,4 @@
 # This directory is used as a target by target-jsonl, so ignore all files
 
-*
+*.jsonl
 !.gitignore

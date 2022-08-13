@@ -1,0 +1,23 @@
+query($eid: String!) {
+    weldData(eid: $eid) {
+        submissions {
+            id
+            eid
+            status
+            resolvedPayload
+            payload
+            payloadValue
+            currentStep
+            totalSteps
+            continueURL
+            reviewData
+            completionPercentage
+            isExcluded
+            touchedByUser
+            requestMeta
+            createdAt
+            updatedAt
+            completedAt
+        }
+    }
+}
