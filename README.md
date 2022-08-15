@@ -1,6 +1,10 @@
 # tap-anvil
 
-*tap-anvil* is a Singer tap for [Anvil](https://www.useanvil.com/), a tool for programmatically filling out PDF forms.
+*tap-anvil* is a Singer tap for Anvil.
+
+A [Singer tap](https://www.singer.io/#taps) extracts data from any source and write it to a standard stream in a JSON-based format.
+
+[Anvil](https://www.useanvil.com/) is a tool for programmatically filling out PDF forms.
 
 ---
 
@@ -38,6 +42,8 @@ The following objects are currently synced:
 3. [Forge](https://www.useanvil.com/docs/api/graphql/reference/#definition-Forge)
 4. [WeldData](https://www.useanvil.com/docs/api/graphql/reference/#definition-WeldData)
 5. [Submission](https://www.useanvil.com/docs/api/graphql/reference/#definition-Submission)
+
+If you'd like to see another object, please open a [feature request](https://github.com/k-aranke/tap-anvil/issues/new?assignees=&labels=&template=feature_request.md&title=).
 
 ## References
 
