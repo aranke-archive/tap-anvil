@@ -1,13 +1,16 @@
 [tool.poetry]
 name = "tap-anvil"
 version = "0.0.1"
-description = "`tap-anvil` is a Singer tap for anvil, built with the Meltano SDK for Singer Taps."
-authors = ["Kshitij Aranke"]
-keywords = [
-    "ELT",
-    "anvil",
-]
-license = "Apache 2.0"
+description = "A Singer tap for Anvil, a tool for programmatically filling out PDF forms."
+authors = ["Kshitij Aranke <kshitij@aranke.org>"]
+keywords = ["singer", "tap", "anvil"]
+license = "MIT"
+homepage = "https://github.com/k-aranke/tap-anvil"
+repository = "https://github.com/k-aranke/tap-anvil"
+
+[tool.poetry.urls]
+Changelog = "https://github.com/k-aranke/tap-anvil/releases"
+
 
 [tool.poetry.dependencies]
 python = "<3.11,>=3.7.1"
@@ -15,7 +18,14 @@ singer-sdk = "^0.8"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1"
+pytest-cov = "^3.0.0"
+python-dotenv = "^0.20"
 mypy = "^0.971"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "1.1.1"
+version_files = ["pyproject.toml:version"]
 
 [build-system]
 requires = ["poetry-core>=1.0.8"]
