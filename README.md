@@ -1,6 +1,10 @@
 # tap-anvil
 
-*tap-anvil* is a Singer tap for [Anvil](https://www.useanvil.com/), a tool for programmatically filling out PDF forms.
+*tap-anvil* is a Singer tap for Anvil.
+
+A [Singer tap](https://www.singer.io/#taps) extracts data from any source and write it to a standard stream in a JSON-based format.
+
+[Anvil](https://www.useanvil.com/) is a tool for programmatically filling out PDF forms.
 
 ---
 
