@@ -1,25 +1,43 @@
 # tap-anvil
 
-`tap-anvil` is a Singer tap for [Anvil](https://www.useanvil.com/), a tool for programmatically filling out PDF forms.
+*tap-anvil* is a Singer tap for [Anvil](https://www.useanvil.com/), a tool for programmatically filling out PDF forms.
+
+---
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/k-aranke/tap-anvil/Test)
+![pre-commit.ci status](https://results.pre-commit.ci/badge/github/k-aranke/tap-anvil/main.svg)
+![Codecov](https://img.shields.io/codecov/c/github/k-aranke/tap-anvil)
 
 ## Installation
 
 ```bash
-pipx install tap-anvil
+pipx install git+https://github.com/k-aranke/mode-client.git@latest
 ```
-
-## Configuration
-
-The only config option is an Anvil API key which can be set up using [these instructions](https://www.useanvil.com/docs/api/getting-started#api-key).
-When running in production, make sure to use the production API key to avoid throttling.
-
-`tap-anvil` accepts this config option using the `TAP_ANVIL_API_KEY` environment variable.
 
 ## Usage
 
-```bash
-TAP_ANVIL_API_KEY=xxx tap-anvil --config=ENV
+Get your Anvil API key using [these instructions](https://www.useanvil.com/docs/api/getting-started#api-key).
+Create a `.env` file to save your Anvil API key.
+
+```dotenv
+TAP_ANVIL_API_KEY=<your-api-key>
 ```
+
+Alternatively, save `TAP_ANVIL_API_KEY` as an environment variable.
+Now you can run:
+
+```bash
+dotenv run tap-anvil --config=ENV
+```
+
+## API
+
+The following objects are currently synced:
+1. [Organization](https://www.useanvil.com/docs/api/graphql/reference/#definition-Organization)
+2. [Weld](https://www.useanvil.com/docs/api/graphql/reference/#definition-Weld)
+3. [Forge](https://www.useanvil.com/docs/api/graphql/reference/#definition-Forge)
+4. [WeldData](https://www.useanvil.com/docs/api/graphql/reference/#definition-WeldData)
+5. [Submission](https://www.useanvil.com/docs/api/graphql/reference/#definition-Submission)
 
 ## References
 
@@ -40,15 +58,23 @@ poetry install
 
 ```bash
 pipx install tap-jsonl
-rm -rf output/*.jsonl && TAP_ANVIL_API_KEY=xxx tap-anvil --config=ENV | target-jsonl -c output/target-jsonl-config.json
+rm -rf output/*.jsonl && dotenv run tap-anvil --config=ENV | target-jsonl -c output/target-jsonl-config.json
 ```
 
 ### Testing
 
 ```bash
-poetry run pytest
+poetry run pytest --cov=tap_anvil
 ```
+
+### Creating a new release
+
+*tap-anvil* uses [Commitizen](https://commitizen-tools.github.io/commitizen/bump/) to automatically create GitHub releases with [semantic versioning](https://semver.org/).
+In practice, this means that prefacing commits with `feat:` will create a minor release and `fix:` will create a patch release.
+
+*tap-anvil* currently isn't published to PyPI.
+
 
 ### Running a GraphQL query locally
 
-Use the Anvil Postman collection here: https://www.postman.com/useanvil/workspace/anvil/overview.
+Use the [Anvil Postman collection](https://www.postman.com/useanvil/workspace/anvil/overview).

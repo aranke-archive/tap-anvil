@@ -136,4 +136,4 @@ dmypy.json
 .pyre/
 
 .idea/
-tap_anvil/queries/schema.graphql
+queries/schema.graphql
