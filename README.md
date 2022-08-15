@@ -39,6 +39,8 @@ The following objects are currently synced:
 4. [WeldData](https://www.useanvil.com/docs/api/graphql/reference/#definition-WeldData)
 5. [Submission](https://www.useanvil.com/docs/api/graphql/reference/#definition-Submission)
 
+If you'd like to see another object, please open a [feature request](https://github.com/k-aranke/tap-anvil/issues/new?assignees=&labels=&template=feature_request.md&title=).
+
 ## References
 
 * [Anvil GraphQL API](https://www.useanvil.com/docs/api/graphql/reference/)
