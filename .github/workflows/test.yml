@@ -1,4 +1,4 @@
-name: Test tap-anvil
+name: Test
 
 on: [push]
 
