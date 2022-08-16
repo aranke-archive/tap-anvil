@@ -4,8 +4,8 @@ from pathlib import Path
 from singer_sdk.authenticators import BasicAuthenticator
 from singer_sdk.streams import GraphQLStream
 
-SCHEMAS_DIR = Path(__file__).parent / Path("../schemas")
-QUERIES_DIR = Path(__file__).parent / Path("../queries")
+SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
+QUERIES_DIR = Path(__file__).parent / Path("./queries")
 
 
 class AnvilStream(GraphQLStream):

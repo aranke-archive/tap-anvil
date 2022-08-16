@@ -7,6 +7,7 @@ keywords = ["singer", "tap", "anvil"]
 license = "MIT"
 homepage = "https://github.com/k-aranke/tap-anvil"
 repository = "https://github.com/k-aranke/tap-anvil"
+include = ["queries", "schemas"]
 
 [tool.poetry.urls]
 Changelog = "https://github.com/k-aranke/tap-anvil/releases"
