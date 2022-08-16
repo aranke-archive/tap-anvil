@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tap-anvil"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Singer tap for Anvil, a tool for programmatically filling out PDF forms."
 authors = ["Kshitij Aranke <kshitij@aranke.org>"]
 keywords = ["singer", "tap", "anvil"]
@@ -25,7 +25,7 @@ mypy = "^0.971"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.1.1"
+version = "0.1.2"
 version_files = ["pyproject.toml:version"]
 
 [build-system]
