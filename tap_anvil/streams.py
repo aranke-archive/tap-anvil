@@ -1,5 +1,5 @@
 """Stream type classes for tap-anvil."""
-from typing import Optional, Dict, Any
+from typing import Any, Dict, Optional
 
 import requests
 
@@ -13,7 +13,9 @@ class OrganizationsStream(AnvilStream):
     jsonpath = "$.data.currentUser.organizations[*]"
     records_jsonpath: Any = jsonpath
 
-    def get_child_context(self, record: Dict[str, Any], context: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    def get_child_context(
+        self, record: Dict[str, Any], context: Optional[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """Pass organization slug to child weld."""
         return {
             "slug": record["slug"],
@@ -41,13 +43,17 @@ class WeldsStream(AnvilStream):
             "variables": {"slug": slug},
         }
 
-    def get_child_context(self, record: Dict[str, Any], context: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    def get_child_context(
+        self, record: Dict[str, Any], context: Optional[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """Pass weld EID to child weld data."""
         return {
             "eid": record["eid"],
         }
 
-    def post_process(self, row: Dict[str, Any], context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    def post_process(
+        self, row: Dict[str, Any], context: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         """Add organization information to record."""
         assert context is not None
         row["organizationSlug"] = context["slug"]
@@ -75,7 +81,9 @@ class ForgesStream(AnvilStream):
             "variables": {"eid": eid},
         }
 
-    def post_process(self, row: Dict[str, Any], context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    def post_process(
+        self, row: Dict[str, Any], context: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         """Add weld information to record."""
         assert context is not None
         row["weldEid"] = context["eid"]
@@ -122,13 +130,17 @@ class WeldDatasStream(AnvilStream):
             "variables": {"eid": eid, "offset": offset},
         }
 
-    def get_child_context(self, record: Dict[str, Any], context: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    def get_child_context(
+        self, record: Dict[str, Any], context: Optional[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """Pass weld EID to child weld data."""
         return {
             "eid": record["eid"],
         }
 
-    def post_process(self, row: Dict[str, Any], context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    def post_process(
+        self, row: Dict[str, Any], context: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         """Add weld information to record."""
         assert context is not None
         row["weldEid"] = context["eid"]
@@ -156,7 +168,9 @@ class SubmissionsStream(AnvilStream):
             "variables": {"eid": eid},
         }
 
-    def post_process(self, row: Dict[str, Any], context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    def post_process(
+        self, row: Dict[str, Any], context: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         """Add weld information to record."""
         assert context is not None
         row["weldDataEid"] = context["eid"]
