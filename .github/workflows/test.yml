@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: poetry install
     - name: Run mypy
-      run: poetry run mypy tap_anvil
+      run: poetry run mypy tap_anvil --strict
 
   pytest:
     runs-on: ubuntu-latest
