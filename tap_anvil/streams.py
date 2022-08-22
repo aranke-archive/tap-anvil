@@ -1,5 +1,5 @@
 """Stream type classes for tap-anvil."""
-from typing import Optional
+from typing import Optional, Dict, Any
 
 import requests  # type: ignore
 
@@ -13,7 +13,7 @@ class OrganizationsStream(AnvilStream):
     jsonpath = "$.data.currentUser.organizations[*]"
     records_jsonpath = jsonpath  # type: ignore
 
-    def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
+    def get_child_context(self, record: Dict[str, Any], context: Optional[Dict[str, Any]]) -> Dict[str, Any]:
         """Pass organization slug to child weld."""
         return {
             "slug": record["slug"],
@@ -30,8 +30,8 @@ class WeldsStream(AnvilStream):
     ignore_parent_replication_keys = True
 
     def prepare_request_payload(
-        self, context: Optional[dict], next_page_token: Optional[int]
-    ) -> dict:
+        self, context: Optional[Dict[str, Any]], next_page_token: Optional[int]
+    ) -> Dict[str, Any]:
         """Inject GraphQL variables into payload."""
         slug = context["slug"]  # type: ignore
 
@@ -40,13 +40,13 @@ class WeldsStream(AnvilStream):
             "variables": {"slug": slug},
         }
 
-    def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
+    def get_child_context(self, record: Dict[str, Any], context: Optional[Dict[str, Any]]) -> Dict[str, Any]:
         """Pass weld EID to child weld data."""
         return {
             "eid": record["eid"],
         }
 
-    def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
+    def post_process(self, row: Dict[str, Any], context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """Add organization information to record."""
         row["organizationSlug"] = context["slug"]  # type: ignore
         return row
@@ -62,8 +62,8 @@ class ForgesStream(AnvilStream):
     ignore_parent_replication_keys = True
 
     def prepare_request_payload(
-        self, context: Optional[dict], next_page_token: Optional[int]
-    ) -> dict:
+        self, context: Optional[Dict[str, Any]], next_page_token: Optional[int]
+    ) -> Dict[str, Any]:
         """Inject GraphQL variables into payload."""
         eid = context["eid"]  # type: ignore
 
@@ -72,7 +72,7 @@ class ForgesStream(AnvilStream):
             "variables": {"eid": eid},
         }
 
-    def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
+    def post_process(self, row: Dict[str, Any], context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """Add weld information to record."""
         row["weldEid"] = context["eid"]  # type: ignore
         return row
@@ -97,17 +97,17 @@ class WeldDatasStream(AnvilStream):
         page = data["data"]["weld"]["weldDatas"]
 
         if data:
-            page_index = page["page"]
-            page_count = page["pageCount"]
-            page_size = page["pageSize"]
+            page_index = int(page["page"])
+            page_count = int(page["pageCount"])
+            page_size = int(page["pageSize"])
             if page_index < page_count:
                 return page_index + page_size
 
         return None
 
     def prepare_request_payload(
-        self, context: Optional[dict], next_page_token: Optional[int]
-    ) -> dict:
+        self, context: Optional[Dict[str, Any]], next_page_token: Optional[int]
+    ) -> Dict[str, Any]:
         """Inject GraphQL variables into payload."""
         offset = next_page_token or 1
         eid = context["eid"]  # type: ignore
@@ -117,13 +117,13 @@ class WeldDatasStream(AnvilStream):
             "variables": {"eid": eid, "offset": offset},
         }
 
-    def get_child_context(self, record: dict, context: Optional[dict]) -> dict:
+    def get_child_context(self, record: Dict[str, Any], context: Optional[Dict[str, Any]]) -> Dict[str, Any]:
         """Pass weld EID to child weld data."""
         return {
             "eid": record["eid"],
         }
 
-    def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
+    def post_process(self, row: Dict[str, Any], context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """Add weld information to record."""
         row["weldEid"] = context["eid"]  # type: ignore
         return row
@@ -139,8 +139,8 @@ class SubmissionsStream(AnvilStream):
     ignore_parent_replication_keys = True
 
     def prepare_request_payload(
-        self, context: Optional[dict], next_page_token: Optional[int]
-    ) -> dict:
+        self, context: Optional[Dict[str, Any]], next_page_token: Optional[int]
+    ) -> Dict[str, Any]:
         """Inject GraphQL variables into payload."""
         eid = context["eid"]  # type: ignore
 
@@ -149,7 +149,7 @@ class SubmissionsStream(AnvilStream):
             "variables": {"eid": eid},
         }
 
-    def post_process(self, row: dict, context: Optional[dict] = None) -> dict:
+    def post_process(self, row: Dict[str, Any], context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """Add weld information to record."""
         row["weldDataEid"] = context["eid"]  # type: ignore
         return row
