@@ -26,6 +26,6 @@ jobs:
         with:
           body_path: "body.md"
           tag_name: ${{ env.REVISION }}
-          append_body: false
+          generate_release_notes: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
