@@ -15,7 +15,7 @@ Changelog = "https://github.com/k-aranke/tap-anvil/releases"
 
 [tool.poetry.dependencies]
 python = "<3.11,>=3.7.1"
-singer-sdk = "^0.8"
+singer-sdk = "^0.12"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1"
